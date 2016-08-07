@@ -1,0 +1,144 @@
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.heart-container {
+    text-align: center;
+    background: #3c948b;
+    -webkit-box-shadow: 0 0 4px 0 #2b2b2b;
+    box-shadow: 0 0 4px 0 #2b2b2b;
+    padding: 20px;
+}
+
+.heart-container > div {
+    vertical-align: middle;
+}
+
+.love-text {
+    position: relative;
+    display: inline-block;
+    text-shadow: 5px 6px 9px #215979;
+    color: #343434;
+    font-size: 7em;
+    font-family: 'Bitter', serif;
+}
+
+#heart {
+    position: relative;
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    -webkit-transform: scale(0.85);
+    -ms-transform: scale(0.85);
+    transform: scale(0.85);
+    z-index: 8;
+}
+
+#heart::before,
+#heart::after {
+    content: '';
+    position: absolute;
+    top: 40px;
+    width: 150px;
+    height: 240px;
+    background: #e62739;
+    border-radius: 150px 150px 0 0;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-transform-origin: 0 100%;
+    -ms-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+}
+
+#heart::before {
+    left: 150px;
+}
+
+#heart::after {
+    left: 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transform-origin: 100% 100%;
+    -ms-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+}
+
+/* It needs some depth  */
+
+#heart::after {
+    box-shadow: inset -4px -4px 0 4px rgba(90, 92, 81, 0.15);
+}
+
+#heart::before {
+    box-shadow: inset 4px 4px 0 4px rgba(90, 92, 81, 0.15);
+}
+
+/*
+ * Hearts gotta beat.
+ */
+@-webkit-keyframes heartbeat {
+    0%, 100% {
+        -webkit-transform: scale(0.75);
+        transform: scale(0.75);
+    }
+    50% {
+        -webkit-transform: scale(1.00);
+        transform: scale(1.00);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        -webkit-transform: scale(0.75);
+        transform: scale(0.75);
+    }
+    50% {
+        -webkit-transform: scale(1.00);
+        transform: scale(1.00);
+    }
+}
+
+/*
+ * Beautiful! Now for the beating...
+ */
+#heart {
+    -webkit-animation-duration: 800ms;
+    animation-duration: 800ms;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+#heart {
+    -webkit-animation-name: heartbeat;
+    animation-name: heartbeat;
+}
+
+#heart {
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
