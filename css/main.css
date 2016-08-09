@@ -203,6 +203,21 @@ body {
     font-weight: bold;
 }
 
+.inner-menu li a::before {
+    color: #fff;
+    content: attr(data-hover);
+    position: absolute;
+    opacity: 0;
+    text-shadow: 0 0 1px #343434;
+    -webkit-transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
+    -moz-transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
+    transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
+    -webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
+    -moz-transition: -moz-transform 0.5s, opacity 0.5s;
+    transition: transform 0.5s, opacity 0.5s;
+    pointer-events: none;
+}
+
 .inner-menu li:nth-child(2n) a{
     background: #f7786b;
     color: #343434;
@@ -211,6 +226,13 @@ body {
 .inner-menu li a:hover {
     background: #dd4132;
     color: #fff;
+}
+
+.inner-menu li a:hover::before, .inner-menu li a:hover::before {
+    -webkit-transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
+    -moz-transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
+    transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
+    opacity: 1;
 }
 
 /* =====================================================================================================================
