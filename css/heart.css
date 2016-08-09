@@ -142,3 +142,16 @@
     -webkit-animation-play-state: running;
     animation-play-state: running;
 }
+
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 1200px;
+    background-color: #2b2b2b;
+    color: azure;
+    padding: 30px;
+}
+
+.main-content a {
+    color: #fff;
+}
