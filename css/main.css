@@ -239,6 +239,7 @@ body {
 }
 .textBlock h4 {
     color: #dd4132;
+}
 
 .inner-menu li a:hover::before, .inner-menu li a:hover::before {
     -webkit-transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
