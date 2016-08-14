@@ -1,0 +1,258 @@
+/* =====================================================================================================================
+ helpers
+===================================================================================================================== */
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/* =====================================================================================================================
+ styles for main elements
+===================================================================================================================== */
+
+body {
+    font-size: 18px;
+    font-family: 'Rubik', sans-serif;
+    color: #292f33;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-width: 900px;
+}
+
+/* =====================================================================================================================
+ I ♥ FrontEnd styles
+===================================================================================================================== */
+
+.heart-container {
+    font-family: "Bitter", serif;
+    text-align: center;
+    background: #98ddde;
+    -webkit-box-shadow: 0 0 4px 0 #2b2b2b;
+    box-shadow: 0 0 4px 0 #2b2b2b;
+    padding: 20px;
+}
+
+.heart-container > div {
+    vertical-align: middle;
+}
+
+.love-text {
+    position: relative;
+    display: inline-block;
+    text-shadow: 5px 6px 9px #3c948b;
+    color: #343434;
+    font-size: 6em;
+}
+
+#heart {
+    position: relative;
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    -webkit-transform: scale(0.85);
+    -ms-transform: scale(0.85);
+    transform: scale(0.85);
+    z-index: 8;
+}
+
+#heart::before,
+#heart::after {
+    content: '';
+    position: absolute;
+    top: 40px;
+    width: 150px;
+    height: 240px;
+    background: #f7786b;
+    border-radius: 150px 150px 0 0;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-transform-origin: 0 100%;
+    -ms-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+}
+
+#heart::before {
+    left: 150px;
+}
+
+#heart::after {
+    left: 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transform-origin: 100% 100%;
+    -ms-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+}
+
+/* It needs some depth  */
+#heart::after {
+    box-shadow: inset -4px -4px 0 4px rgba(90, 92, 81, 0.15);
+}
+
+#heart::before {
+    box-shadow: inset 4px 4px 0 4px rgba(90, 92, 81, 0.15);
+}
+
+/*
+ * Hearts gotta beat.
+ */
+@-webkit-keyframes heartbeat {
+    0%, 100% {
+        -webkit-transform: scale(0.75);
+        transform: scale(0.75);
+    }
+    50% {
+        -webkit-transform: scale(1.00);
+        transform: scale(1.00);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        -webkit-transform: scale(0.75);
+        transform: scale(0.75);
+    }
+    50% {
+        -webkit-transform: scale(1.00);
+        transform: scale(1.00);
+    }
+}
+
+/*
+ * Beautiful! Now for the beating...
+ */
+#heart {
+    -webkit-animation-duration: 800ms;
+    animation-duration: 800ms;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+#heart {
+    -webkit-animation-name: heartbeat;
+    animation-name: heartbeat;
+}
+
+#heart {
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+/* =====================================================================================================================
+ Top menu
+===================================================================================================================== */
+
+.inner-menu ul {
+    font-family: 'Ubuntu', sans-serif;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    text-align: justify;
+    margin: 0;
+    padding: 0;
+}
+
+.inner-menu li {
+    border-bottom: 1px solid #91a8d0;
+    list-style: none;
+    text-transform: uppercase;
+    position: relative;
+    display: table-cell;
+    font-size: 1em;
+    text-align: center;
+    line-height: 3em;
+    min-height: 3em;
+    cursor: pointer;
+    background: #fff;
+    vertical-align: middle;
+}
+
+.inner-menu li a {
+    font-size: 2em;
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: #dd4132;
+    -webkit-transition: background 0.3s ease-out;
+    transition: background 0.3s ease-out;
+    font-weight: bold;
+}
+
+.inner-menu li a::before {
+    color: #fff;
+    content: attr(data-hover);
+    position: absolute;
+    opacity: 0;
+    text-shadow: 0 0 1px #343434;
+    -webkit-transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
+    -moz-transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
+    transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
+    -webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
+    -moz-transition: -moz-transform 0.5s, opacity 0.5s;
+    transition: transform 0.5s, opacity 0.5s;
+    pointer-events: none;
+}
+
+.inner-menu li:nth-child(2n) a{
+    background: #f7786b;
+    color: #343434;
+}
+
+.inner-menu li a:hover {
+    background: #dd4132;
+    color: #fff;
+}
+
+.textBlock {
+    border: 2px #98ddde solid;
+    width: 218px;
+    height: 210px;
+    float: left;
+    margin: auto 1px 20px 1px;
+    text-align: center;
+}
+.textBlock h4 {
+    color: #dd4132;
+}
+
+.inner-menu li a:hover::before, .inner-menu li a:hover::before {
+    -webkit-transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
+    -moz-transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
+    transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
+    opacity: 1;
+}
+
+/* =====================================================================================================================
+ Main area
+===================================================================================================================== */
+
+.main-content {
+    padding: 30px;
+    line-height: 1.2em;
+}
