@@ -28,14 +28,23 @@
  styles for main elements
 ===================================================================================================================== */
 
+body, html {
+    min-width: 100%;
+    min-height: 100%;
+}
+
 body {
+    position: relative;
     font-size: 18px;
     font-family: 'Rubik', sans-serif;
     color: #292f33;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    min-width: 900px;
+}
+
+.wrapper {
+    min-width: 350px;
 }
 
 /* =====================================================================================================================
@@ -49,6 +58,7 @@ body {
     -webkit-box-shadow: 0 0 4px 0 #2b2b2b;
     box-shadow: 0 0 4px 0 #2b2b2b;
     padding: 20px;
+    box-sizing: border-box;
 }
 
 .heart-container > div {
@@ -176,6 +186,7 @@ body {
     text-align: justify;
     margin: 0;
     padding: 0;
+    box-shadow: 0 0 4px 0 #2b2b2b;
 }
 
 .inner-menu li {
@@ -193,10 +204,19 @@ body {
     vertical-align: middle;
 }
 
+@media (max-width: 650px) {
+    .inner-menu li {
+        display: block;
+    }
+}
+
 .inner-menu li a {
-    font-size: 2em;
     display: block;
+    position: relative;
     width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 2em;
     text-decoration: none;
     color: #dd4132;
     -webkit-transition: background 0.3s ease-out;
@@ -219,7 +239,7 @@ body {
     pointer-events: none;
 }
 
-.inner-menu li:nth-child(2n) a{
+.inner-menu li:nth-child(2n) a {
     background: #f7786b;
     color: #343434;
 }
@@ -237,6 +257,7 @@ body {
     margin: auto 1px 20px 1px;
     text-align: center;
 }
+
 .textBlock h4 {
     color: #dd4132;
 }
@@ -255,4 +276,8 @@ body {
 .main-content {
     padding: 30px;
     line-height: 1.2em;
+}
+
+h1 {
+    line-height: 1em;
 }
